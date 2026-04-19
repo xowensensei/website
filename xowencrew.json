@@ -34,8 +34,18 @@
       "color": "from-purple-400 to-violet-500"
     },
     {
+      "pseudo": "NouveauMembre",
+      "role": "Modérateur Chat Live",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif"
+    },
+    {
       "pseudo": " LeTryHardeurDeWplace",
-      "role": "modérateur goatesque (il se goon un peu trop)",
+      "role": "modérateur goatesque (il se goon sur wplace)",
       "missions": [
         "Mission 1",
         "Mission 2",
@@ -73,7 +83,17 @@
       "message": "premier don"
     }
   ],
-  "projets": [],
+  "projets": [
+    {
+      "titre": "live genshin impact",
+      "description": "live sur genshin impact",
+      "icône": "🎮",
+      "statut": "se prépare bientot",
+      "tags": [
+        "hoyo"
+      ]
+    }
+  ],
   "liens": [
     {
       "nom": "Twitch",
@@ -84,7 +104,7 @@
     },
     {
       "nom": "Youtube",
-      "url": "https://www.youtube.com/@lavraixowen",
+      "url": "",
       "icône": "🔴",
       "description": "youtube",
       "couleur": "#FF0000"
