@@ -76,14 +76,8 @@
       "color": "from-teal-400 to-cyan-500"
     }
   ],
-  "donations": [
-    {
-    }
-  ],
-  "projets": [
-    {
-    }
-  ],
+  "donations": [],
+  "projets": [],
   "liens": [
     {
       "nom": "Twitch",
