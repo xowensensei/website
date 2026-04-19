@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>XOWEN | Créatrice de Contenu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ff6b9d, #c44dff, #6b77ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+
+        .card-glow:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(196, 77, 255, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b9d, #c44dff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(196, 77, 255, 0.15) 0%, transparent 60%);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 1.8rem !important; }
+            h3 { font-size: 1.2rem !important; }
+            
+            .grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            
+            nav .hidden.md-flex { display: none !important; }
+            button.md\\:hidden { display: block !important; }
+            
+            #accueil button { width: 100%; }
+            
+            .card-glow { padding: 1rem !important; }
+            
+            #projets .flex { flex-direction: column !important; gap: 1rem !important; align-items: center !important; text-align: center; }
+            
+            #liens a { padding: 1rem !important; }
+            
+            body { padding-left: 0.5rem; padding-right: 0.5rem; }
+            main { padding-left: 1rem; padding-right: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.5rem !important; }
+            
+            .w-20 { width: 4rem !important; height: 4rem !important; font-size: 2rem !important; }
+            .w-16 { width: 3rem !important; height: 3rem !important; font-size: 1.5rem !important; }
+            .w-40 { width: 7rem !important; height: 7rem !important; font-size: 3rem !important; }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">XOWEN</div>
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="showSection('accueil')" class="nav-link active text-white/80 hover:text-white transition" id="nav-accueil">Accueil</button>
+                    <button onclick="showSection('crew')" class="nav-link text-white/80 hover:text-white transition" id="nav-crew">XowenCrew</button>
+                    <button onclick="showSection('projets')" class="nav-link text-white/80 hover:text-white transition" id="nav-projets">Projets</button>
+                    <button onclick="showSection('liens')" class="nav-link text-white/80 hover:text-white transition" id="nav-liens">Liens</button>
+                    <button onclick="showSection('donations')" class="nav-link text-white/80 hover:text-white transition" id="nav-donations">💜 Donations</button>
+                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 space-y-3">
+                <button onclick="showSection('accueil')" class="block w-full text-left text-white/80 hover:text-white py-2">Accueil</button>
+                <button onclick="showSection('crew')" class="block w-full text-left text-white/80 hover:text-white py-2">XowenCrew</button>
+                <button onclick="showSection('projets')" class="block w-full text-left text-white/80 hover:text-white py-2">Projets</button>
+                <button onclick="showSection('liens')" class="block w-full text-left text-white/80 hover:text-white py-2">Liens</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <!-- Section Accueil -->
+        <section id="accueil" class="section active">
+            <div class="hero-bg min-h-[80vh] flex flex-col justify-center items-center text-center">
+                <div class="w-40 h-40 rounded-full bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 p-1 mb-8">
+                    <img src="https://images-ext-1.discordapp.net/external/0PKey5ejWDQyPAwFfDWnoV5VQ8OXMrKhh6N6fVeJYIs/%3Fsize%3D512/https/cdn.discordapp.com/avatars/1431981935562985666/c54840818a83e3a7c1905b9b20c6bc8a.png?format=webp&quality=lossless&width=263&height=263" class="w-full h-full rounded-full object-cover" alt="Xowen">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text">XOWEN</h1>
+                <p class="text-xl md:text-2xl text-white/70 max-w-2xl mb-8">
+                    Créatrice de contenu, passionnée par le gaming, ma communauté est une safe place, on t'accepte comme tu es
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="showSection('liens')" class="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full font-semibold hover:scale-105 transition">
+                        Mes réseaux
+                    </button>
+                    <button onclick="showSection('projets')" class="px-8 py-3 border border-white/20 rounded-full font-semibold hover:bg-white/10 transition">
+                        Voir mes projets
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section XowenCrew -->
+        <section id="crew" class="section">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3 gradient-text text-center">XowenCrew</h2>
+                <p class="text-white/60 text-center mb-12 text-lg">L'équipe de modération qui garde la communauté bienveillante 💕</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 mb-4 flex items-center justify-center text-2xl">👑</div>
+                        <h3 class="text-xl font-bold mb-1">Admin Principal</h3>
+                        <p class="text-white/60 mb-3">@pseudo_admin</p>
+                        <p class="text-white/50 text-sm">Gestion générale, évènements et coordination de l'équipe.</p>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 mb-4 flex items-center justify-center text-2xl">🛡️</div>
+                        <h3 class="text-xl font-bold mb-1">Modérateur Chat</h3>
+                        <p class="text-white/60 mb-3">@pseudo_mod1</p>
+                        <p class="text-white/50 text-sm">Surveillance du chat live, application des règles.</p>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-violet-500 mb-4 flex items-center justify-center text-2xl">🎨</div>
+                        <h3 class="text-xl font-bold mb-1">Graphiste</h3>
+                        <p class="text-white/60 mb-3">@pseudo_graphiste</p>
+                        <p class="text-white/50 text-sm">Création des visuels, bannières, emotes et assets.</p>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 mb-4 flex items-center justify-center text-2xl">📱</div>
+                        <h3 class="text-xl font-bold mb-1">Community Manager</h3>
+                        <p class="text-white/60 mb-3">@pseudo_cm</p>
+                        <p class="text-white/50 text-sm">Gestion des réseaux sociaux, communication et publications.</p>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 mb-4 flex items-center justify-center text-2xl">🎵</div>
+                        <h3 class="text-xl font-bold mb-1">Producteur Musical</h3>
+                        <p class="text-white/60 mb-3">@pseudo_music</p>
+                        <p class="text-white/50 text-sm">Création des OST, jingles et sons pour les lives.</p>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-red-400 to-pink-500 mb-4 flex items-center justify-center text-2xl">💡</div>
+                        <h3 class="text-xl font-bold mb-1">Idéateur / Testeur</h3>
+                        <p class="text-white/60 mb-3">@pseudo_idea</p>
+                        <p class="text-white/50 text-sm">Proposition de concepts, tests et améliorations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projets" class="section">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3 gradient-text text-center">Mes Projets</h2>
+                <p class="text-white/60 text-center mb-12 text-lg">Tout ce que je crée et sur quoi je travaille actuellement 🚀</p>
+
+                <div class="space-y-8">
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-3xl shrink-0">🎮</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Série Gaming : Découverte Complete</h3>
+                                <p class="text-white/60 mb-4">Nouvelle série où je découvre des jeux du début à la fin, avec analyse, commentaires et interactions avec la communauté. Chaque semaine un nouveau jeu !</p>
+                                <div class="flex gap-2 flex-wrap">
+                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">En cours</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Tous les mercredis</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Twitch & Youtube</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-3xl shrink-0">🎙️</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Podcast : Les Coulisses</h3>
+                                <p class="text-white/60 mb-4">Podcast mensuel où je parle de l'arrière plan de la création de contenu, les difficultés, les réussites et tous les trucs que l'on ne voit pas sur les streams.</p>
+                                <div class="flex gap-2 flex-wrap">
+                                    <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">En préparation</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Mensuel</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Spotify</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-3xl shrink-0">👥</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Serveur Communautaire</h3>
+                                <p class="text-white/60 mb-4">Nouveau serveur Discord en construction avec des évènements exclusifs, des canaux de discussion, des jeux, des récompenses et bien plus pour toute la communauté !</p>
+                                <div class="flex gap-2 flex-wrap">
+                                    <span class="px-3 py-1 bg-amber-500/20 text-amber-300 rounded-full text-sm">Bientôt disponible</span>
+                                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Discord</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Liens -->
+        <section id="liens" class="section">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3 gradient-text">Mes Liens</h2>
+                <p class="text-white/60 mb-12 text-lg">Retrouve moi sur toutes mes plateformes 🔗</p>
+
+                <div class="space-y-4">
+                    <a href="#" class="card-glow block w-full bg-[#9146FF]/20 border border-[#9146FF]/30 rounded-xl py-4 px-6 text-left hover:bg-[#9146FF]/30 transition">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl">🟣</span>
+                            <div>
+                                <div class="font-bold">Twitch</div>
+                                <div class="text-white/50 text-sm">Live 3x par semaine</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="card-glow block w-full bg-[#FF0000]/20 border border-[#FF0000]/30 rounded-xl py-4 px-6 text-left hover:bg-[#FF0000]/30 transition">
+                        <div class="flex items-center gap-4">
+                            <span class="text-2xl">🔴</span>
+                            <div>
+                                <div class="font-bold">Youtube</div>
+                                <div class="text-white/50 text-sm">VOD & vidéos</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Donations Historique -->
+        <section id="donations" class="section">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3 gradient-text text-center">💜 TOP DONATEURS</h2>
+                <p class="text-white/60 text-center mb-12 text-lg">Merci infiniment à tous ceux qui me soutiennent ! Chaque geste compte énormément 💜</p>
+                
+                <div id="donators-list" class="grid md:grid-cols-2 gap-4">
+                </div>
+
+                <div class="text-center mt-10">
+                <a href="https://streamlabs.com/xowensurtwitch1/tip" target="_blank" class="gradient-bg inline-block px-10 py-4 rounded-full font-bold text-lg hover:opacity-90 transition">💜 Faire un don sur Streamlabs</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Chargement et synchronisation XowenCrew (ANTI CACHE)
+        async function loadXowenCrew() {
+            try {
+                // Ajout timestamp pour éviter le cache navigateur
+                const response = await fetch('xowencrew.json?t=' + Date.now());
+                const crewData = await response.json();
+                console.log('📥 Données brutes reçues:', crewData);
+                
+        if(crewData && crewData.xowencrew) {
+            renderCrew(crewData.xowencrew);
+            console.log('✅ XowenCrew synchronisé avec succès', crewData.xowencrew.length, 'membres');
+        }
+
+        if(crewData && crewData.donations) {
+            renderDonations(crewData.donations);
+            console.log('✅ Donations synchronisées avec succès', crewData.donations.length, 'dons');
+        }
+
+        if(crewData && crewData.projets) {
+            renderProjets(crewData.projets);
+            console.log('✅ Projets synchronisés avec succès', crewData.projets.length, 'projets');
+        }
+
+        if(crewData && crewData.liens) {
+            renderLiens(crewData.liens);
+            console.log('✅ Liens sociaux synchronisés avec succès', crewData.liens.length, 'liens');
+        }
+    } catch(e) {
+        console.error('❌ Erreur chargement xowencrew.json:', e);
+    }
+        }
+
+        function renderCrew(members) {
+            const crewContainer = document.querySelector('#crew .grid');
+            crewContainer.innerHTML = '';
+            
+            const roleColors = {
+                'Admin Principal': 'from-blue-400 to-cyan-500',
+                'Modérateur Chat Live': 'from-pink-400 to-rose-500',
+                'Graphiste': 'from-purple-400 to-violet-500',
+                'Community Manager': 'from-amber-400 to-orange-500',
+                'Producteur Musical': 'from-green-400 to-emerald-500',
+                'Idéateur / Testeur': 'from-red-400 to-pink-500'
+            };
+
+            const roleIcons = {
+                'Admin Principal': '👑',
+                'Modérateur Chat Live': '🛡️',
+                'Graphiste': '🎨',
+                'Community Manager': '📱',
+                'Producteur Musical': '🎵',
+                'Idéateur / Testeur': '💡'
+            };
+
+            members.forEach(member => {
+                crewContainer.innerHTML += `
+                <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br ${member.color || roleColors[member.role] || 'from-gray-400 to-gray-500'} mb-4 flex items-center justify-center text-2xl">
+                        ${roleIcons[member.role] || '👤'}
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">${member.pseudo}</h3>
+                    <p class="text-white/60 mb-3">${member.role}</p>
+                    ${member.status === 'actif' ? '<div class="mt-3 text-xs text-green-400">✅ Actif</div>' : ''}
+                </div>`;
+            });
+        }
+
+        function renderDonations(donationsList) {
+            const donatorsContainer = document.getElementById('donators-list');
+            donatorsContainer.innerHTML = '';
+            
+            // Trier par montant le plus élevé
+            const sortedDonations = [...donationsList].sort((a, b) => parseFloat(b.amount) - parseFloat(a.amount));
+
+            sortedDonations.forEach((don, index) => {
+                let medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index+1}`;
+                
+                donatorsContainer.innerHTML += `
+                <div class="glass rounded-xl p-4 flex justify-between items-center card-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="text-xl font-bold w-8">${medal}</div>
+                        <div>
+                            <div class="font-semibold">${don.pseudo}</div>
+                            ${don.message ? `<div class="text-sm text-gray-500">${don.message}</div>` : ''}
+                        </div>
+                    </div>
+                    <div class="font-bold text-purple-400">${don.amount}€</div>
+                </div>`;
+            });
+        }
+
+        function renderProjets(projetsList) {
+            const projetsContainer = document.querySelector('#projets .space-y-8');
+            projetsContainer.innerHTML = '';
+            
+            const statutColors = {
+                'En cours': 'bg-purple-500/20 text-purple-300',
+                'En préparation': 'bg-pink-500/20 text-pink-300',
+                'Bientôt disponible': 'bg-amber-500/20 text-amber-300',
+                'Terminé': 'bg-green-500/20 text-green-300'
+            };
+
+            projetsList.filter(p => Object.keys(p).length > 0).forEach(projet => {
+                projetsContainer.innerHTML += `
+                <div class="card-glow bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+                    <div class="flex items-start gap-6">
+                        <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-3xl shrink-0">${projet.icône || '🎮'}</div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">${projet.titre}</h3>
+                            <p class="text-white/60 mb-4">${projet.description || ''}</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="px-3 py-1 ${statutColors[projet.statut || 'En cours']} rounded-full text-sm">${projet.statut || 'En cours'}</span>
+                                ${(projet.tags || []).map(tag => `<span class="px-3 py-1 bg-white/10 rounded-full text-sm">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+        }
+
+        function renderLiens(liensList) {
+            const liensContainer = document.querySelector('#liens .space-y-4');
+            liensContainer.innerHTML = '';
+
+            liensList.forEach(lien => {
+                liensContainer.innerHTML += `
+                <a href="${lien.url.replace(/^#+/, '').startsWith('http') || lien.url.replace(/^#+/, '').startsWith('discord.gg') ? (lien.url.replace(/^#+/, '').startsWith('discord.gg') ? 'https://' + lien.url.replace(/^#+/, '') : lien.url.replace(/^#+/, '')) : 'https://' + lien.url.replace(/^#+/, '')}" target="_blank" rel="noopener noreferrer" class="card-glow block w-full border border-white/30 rounded-xl py-4 px-6 text-left hover:bg-white/30 transition" style="background-color: ${lien.couleur}20; border-color: ${lien.couleur}50;">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">${lien.icône || '🔗'}</span>
+                        <div>
+                            <div class="font-bold">${lien.nom}</div>
+                            ${lien.description ? `<div class="text-white/50 text-sm">${lien.description}</div>` : ''}
+                        </div>
+                    </div>
+                </a>`;
+            });
+        }
+
+        function showSection(sectionId) {
+            // Masquer toutes les sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Afficher la section demandée
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Mettre à jour l'état des liens de navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const activeNav = document.getElementById('nav-' + sectionId);
+            if(activeNav) activeNav.classList.add('active');
+            
+            // Fermer le menu mobile
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Remonter en haut de page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Charger le crew au démarrage
+        document.addEventListener('DOMContentLoaded', () => {
+            loadXowenCrew();
+        });
+    </script>
+</body>
+</html>

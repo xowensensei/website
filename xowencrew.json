@@ -1,0 +1,110 @@
+{
+  "xowencrew": [
+    {
+      "pseudo": "xowen (élyse)",
+      "role": "streameuse",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif",
+      "color": "from-pink-400 to-rose-500"
+    },
+    {
+      "pseudo": "ClothOverall",
+      "role": "admin (goatesque)",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif",
+      "color": "from-purple-400 to-violet-500"
+    },
+    {
+      "pseudo": "Tryhardeuse de Genshin",
+      "role": "admin (se goon sur genshin impact 23h par jour)",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif",
+      "color": "from-purple-400 to-violet-500"
+    },
+    {
+      "pseudo": "NouveauMembre",
+      "role": "Modérateur Chat Live",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif"
+    },
+    {
+      "pseudo": " LeTryHardeurDeWplace",
+      "role": "modérateur goatesque (il se goon sur wplace)",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif",
+      "color": "from-amber-400 to-orange-500"
+    },
+    {
+      "pseudo": "nimiyo akane",
+      "role": "admin rien a dire",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif"
+    },
+    {
+      "pseudo": "nathael",
+      "role": "modo qui est inactif",
+      "missions": [
+        "Mission 1",
+        "Mission 2",
+        "Mission 3"
+      ],
+      "status": "actif",
+      "color": "from-teal-400 to-cyan-500"
+    }
+  ],
+  "donations": [
+    {
+    }
+  ],
+  "projets": [
+    {
+    }
+  ],
+  "liens": [
+    {
+      "nom": "Twitch",
+      "url": "https://www.twitch.tv/xowensurtwitch",
+      "icône": "🟣",
+      "description": "twitch",
+      "couleur": "#9146FF"
+    },
+    {
+      "nom": "Youtube",
+      "url": "",
+      "icône": "🔴",
+      "description": "youtube",
+      "couleur": "#FF0000"
+    },
+    {
+      "nom": "discord",
+      "url": "https://discord.gg/CEsAYZcTUJ",
+      "icône": "❤️",
+      "description": "discord",
+      "couleur": "#6400fa"
+    }
+  ]
+}
