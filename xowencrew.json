@@ -76,7 +76,13 @@
       "color": "from-teal-400 to-cyan-500"
     }
   ],
-  "donations": [],
+  "donations": [
+    {
+      "pseudo": "djcreeper",
+      "amount": "1",
+      "message": "premier don"
+    }
+  ],
   "projets": [],
   "liens": [
     {
