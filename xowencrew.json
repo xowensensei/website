@@ -33,13 +33,6 @@
       "status": "actif",
       "color": "from-purple-400 to-violet-500"
     },
-    {
-      "pseudo": "NouveauMembre",
-      "role": "Modérateur Chat Live",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
       ],
       "status": "actif"
     },
