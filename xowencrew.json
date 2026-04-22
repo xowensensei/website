@@ -3,65 +3,41 @@
     {
       "pseudo": "xowen (élyse)",
       "role": "streameuse",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
-      ],
+      "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif",
       "color": "from-pink-400 to-rose-500"
     },
     {
       "pseudo": "ClothOverall",
       "role": "admin (goatesque)",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
-      ],
+      "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif",
       "color": "from-purple-400 to-violet-500"
     },
     {
       "pseudo": "Tryhardeuse de Genshin",
       "role": "admin (se goon sur genshin impact 23h par jour)",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
-      ],
+      "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif",
       "color": "from-purple-400 to-violet-500"
     },
     {
-      "pseudo": " LeTryHardeurDeWplace",
+      "pseudo": "LeTryHardeurDeWplace",
       "role": "modérateur goatesque (il se goon 23h sur 24)",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
-      ],
+      "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif",
       "color": "from-amber-400 to-orange-500"
     },
     {
       "pseudo": "nimiyo akane",
       "role": "admin rien a dire",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
-      ],
+      "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif"
     },
     {
       "pseudo": "nathael",
       "role": "modo qui est inactif",
-      "missions": [
-        "Mission 1",
-        "Mission 2",
-        "Mission 3"
-      ],
+      "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif",
       "color": "from-teal-400 to-cyan-500"
     }
@@ -71,11 +47,11 @@
       "pseudo": "djcreeper",
       "amount": "1",
       "message": "lets goooooooooooooo"
-    }
+    },
     {
       "pseudo": "djcreeper",
-      "amount": "10",
-      "message": "don steam"
+      "amount": "9",
+      "message": "lets goooooooooooooo"
     }
   ],
   "projets": [
@@ -84,9 +60,7 @@
       "description": "live sur genshin impact",
       "icône": "🎮",
       "statut": "se prépare bientot",
-      "tags": [
-        "hoyo"
-      ]
+      "tags": ["hoyo"]
     }
   ],
   "liens": [
