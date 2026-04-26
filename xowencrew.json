@@ -36,7 +36,7 @@
     },
     {
       "pseudo": "nathael",
-      "role": "modo qui est inactif",
+      "role": "admin (le bdg il abandonerai tous pour une fille)",
       "missions": ["Mission 1", "Mission 2", "Mission 3"],
       "status": "actif",
       "color": "from-teal-400 to-cyan-500"
